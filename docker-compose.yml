@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./docker/api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - REDIS_HOST=redis
+    depends_on:
+      - db
+      - redis
+
+  sensor-service:
+    build:
+      context: ./docker/sensor-service
+      dockerfile: Dockerfile
+    environment:
+      - AWS_REGION=us-east-1
+      - KINESIS_STREAM=parking-sensors
+    depends_on:
+      - api
+
+  db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_DB=parkingdb
+      - POSTGRES_USER=parkingadmin
+      - POSTGRES_PASSWORD=devpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
