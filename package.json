@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "react-leaflet": "^4.1.0",
+    "leaflet": "^1.9.3",
+    "zustand": "^4.2.0",
+    "axios": "^1.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@headlessui/react": "^1.7.17",
@@ -24,6 +28,9 @@
     "here-js-api": "^1.0.0"
   },
   "devDependencies": {
+    "@types/react-leaflet": "^4.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

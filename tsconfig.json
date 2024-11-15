@@ -1,12 +1,14 @@
+
 {
   "compilerOptions": {
     "target": "ES6",
     "module": "ESNext",
-    "jsx": "react-jsx", // For React 17+
+    "jsx": "react-jsx", // Enable React JSX
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
