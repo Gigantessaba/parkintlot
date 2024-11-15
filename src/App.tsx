@@ -1,4 +1,3 @@
-import React from 'react';
 import { ParkingMap } from './components/ParkingMap';
 import { useParkingStore } from './store/parkingStore';
 import { useParkingData } from './hooks/useParkingData';

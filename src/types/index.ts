@@ -1,28 +1,9 @@
-export interface TruckSpot {
-  id: number;
-  number: string;
-  isOccupied: boolean;
-  lastUpdated: Date;
-  sensorId: string;
-  dimensions: {
-    length: number;
-    width: number;
-  };
-  location: {
-    lat: number;
-    lng: number;
-  };
-  amenities: {
-    electric: boolean;
-    water: boolean;
-    security: boolean;
-  };
+export interface ParkingSpot {
+    id: string;
+    location: { lat: number; lng: number };
+    isOccupied: boolean;
+    number: string;
+    lastUpdated: Date;
 }
 
-export interface ParkingState {
-  spots: TruckSpot[];
-  selectedSpot: TruckSpot | null;
-  updateSpots: (spots: TruckSpot[]) => void;
-  updateSpotStatus: (spotId: number, isOccupied: boolean) => void;
-  setSelectedSpot: (spot: TruckSpot | null) => void;
-}
+// Add any other exports here
