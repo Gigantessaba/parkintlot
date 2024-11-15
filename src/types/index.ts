@@ -1,9 +1,13 @@
+
 export interface ParkingSpot {
-    id: string;
-    location: { lat: number; lng: number };
-    isOccupied: boolean;
-    number: string;
-    lastUpdated: Date;
+  id: string;
+  location: { lat: number; lng: number };
+  isOccupied: boolean;
+  number: string;
+  lastUpdated: Date;
 }
 
-// Add any other exports here
+export interface TruckSpot extends ParkingSpot {
+  truckType: string;
+  amenities: string[];
+}
