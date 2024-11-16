@@ -1,13 +1,17 @@
-
 export interface ParkingSpot {
   id: string;
-  location: { lat: number; lng: number };
-  isOccupied: boolean;
   number: string;
+  isOccupied: boolean;
   lastUpdated: Date;
+  location: { lat: number; lng: number };
+  amenities: ('electric' | 'water' | 'security')[];
+  vehicleInfo?: { plate: string }; // Optional property
 }
 
-export interface TruckSpot extends ParkingSpot {
-  truckType: string;
-  amenities: string[];
+export interface ParkingState {
+  spots: ParkingSpot[];
+  selectedSpot: ParkingSpot | null;
+  updateSpots: (spots: ParkingSpot[]) => void;
+  updateSpotStatus: (spotId: string, isOccupied: boolean) => void;
+  setSelectedSpot: (spot: ParkingSpot | null) => void;
 }
